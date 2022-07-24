@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/eduardosm1291/react-app/static/css/main.24a48eab.css",
+    "main.js": "/eduardosm1291/react-app/static/js/main.1192fe67.js",
+    "index.html": "/eduardosm1291/react-app/index.html",
+    "main.24a48eab.css.map": "/eduardosm1291/react-app/static/css/main.24a48eab.css.map",
+    "main.1192fe67.js.map": "/eduardosm1291/react-app/static/js/main.1192fe67.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.24a48eab.css",
+    "static/js/main.1192fe67.js"
+  ]
+}

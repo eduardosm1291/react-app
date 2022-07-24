@@ -8,6 +8,11 @@ import {TodoContext} from '../../TodoContext';
 import {Modal} from '../Modal';
 import {TodoForm} from '../TodoForm';
 import {Loader} from '../Loader';
+import {GroupTodo} from '../GroupTodo';
+import {GroupTodoForm} from '../GroupTodoForm';
+import {GroupTodoList} from '../GroupTodoList';
+import {GroupTodoItem} from '../GroupTodoItem';
+import {Header} from '../header';
 const border = {
   margin: '0 24px',
   marginTop: '24px'
@@ -18,18 +23,43 @@ const border = {
 
 function AppUi() {
   const {
-    error,
-    loading,
-    searchTodos,
-    completeTodo,
-    deleteTodo,
+    groupTodos,
     openModal,
     setOpenModal
     } = React.useContext(TodoContext);
     return (
-    
+
     <React.Fragment>
-        <TodoCounter/>
+      <Header></Header>
+       <GroupTodoList>
+            {
+            
+            groupTodos.map(groupTodo => {
+              console.log(groupTodo)
+              return (
+                
+            <GroupTodoItem
+              key={groupTodo.titulo}
+              text={groupTodo.titulo}
+              icon = {groupTodo.icon}
+             
+            />
+            
+          )
+        })
+        
+          }
+            </GroupTodoList>
+        {openModal && (
+            <Modal>
+                <GroupTodoForm></GroupTodoForm>
+              </Modal>)
+            }
+  
+                  <CreateTodoButton
+                  setOpenModal = {setOpenModal}
+                  ></CreateTodoButton>
+        {/* <TodoCounter/>
         <div style={border}>
           
         <TodoSearch/>
@@ -60,7 +90,7 @@ function AppUi() {
                 <CreateTodoButton
                 setOpenModal = {setOpenModal}
                 ></CreateTodoButton>
-        </div>
+        </div> */}
       </React.Fragment>);
 }
 

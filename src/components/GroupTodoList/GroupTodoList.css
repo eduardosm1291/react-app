@@ -1,0 +1,13 @@
+.GroupTodoList {
+    margin: 0;
+    padding: 0 0 56px 0;
+    list-style: none;
+  }
+  .sectionGroup {
+    display: grid;
+    
+    grid-row-gap: 3%;
+    grid-template-columns: repeat(2, 47%);
+    grid-column-gap: 5%;
+    margin:12px;
+  }

@@ -1,0 +1,33 @@
+
+  
+  .headline {
+    position: relative;
+    height: 100px;
+    color: #fff;
+    text-align: center;
+    background: url("https://iluminemosdeazul.org//wp-content/uploads/2017/04/fondo-header.png") ;
+   /*  background-color: #db5e19; */
+    background-size: cover;
+  }
+  .headline:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(56 61 63 / 30%);
+  }
+  
+
+  .inner h1 {
+    margin: 0;
+    font-size: 2em;
+    line-height: 1.2em;
+  }
+  .inner p {
+    margin: 0;
+    font-size: 1.4em;
+    font-style: italic;
+    font-family: serif;
+  }

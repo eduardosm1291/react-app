@@ -5,10 +5,13 @@ const TodoContext = React.createContext();
 
 function TodoProvider (props) {
   const {item: todos, saveItem: saveTodos, loading, error} = useLocalStorage('TODOS_V1', []);
+  const {item: groupTodos, saveItem: saveGroupTodos, loading: loadinGroup, error: errorGroup} = useLocalStorage('GroupTodos_V1', []);
   const [openModal, setOpenModal] = React.useState(false);
+  const [groupSelect, setGroupSelect] = React.useState(false);
   const [searchValue, setSearchValue]  =  React.useState('');
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
+ 
   let searchTodos = [];
   if (!searchValue.length >=1) {
     searchTodos = todos;
@@ -29,6 +32,15 @@ function TodoProvider (props) {
     });
     saveTodos(newTodos);
   };
+
+  // Función para añadir un nuevo Grupo de Todos
+  const addGroupTodo= (groupTodo) => {
+    const newGroupTodos = [...groupTodos];
+    newGroupTodos.push(
+      groupTodo
+    )
+    saveGroupTodos(newGroupTodos);
+  }
   const completeTodo = (text) => {
     const indexTodo = todos.findIndex(todo => todo.text === text);
     const newTodos =[...todos];
@@ -55,7 +67,9 @@ function TodoProvider (props) {
         deleteTodo,
         openModal,
         setOpenModal,
-        addTodo
+        addGroupTodo,
+        addTodo,
+        groupTodos
       }}>
       {props.children}
     </TodoContext.Provider>

@@ -13,6 +13,7 @@ import {GroupTodoForm} from '../GroupTodoForm';
 import {GroupTodoList} from '../GroupTodoList';
 import {GroupTodoItem} from '../GroupTodoItem';
 import {Header} from '../header';
+import { Routes, Route, useParams } from 'react-router-dom';
 const border = {
   margin: '0 24px',
   marginTop: '24px'
@@ -22,43 +23,14 @@ const border = {
 
 
 function AppUi() {
-  const {
-    groupTodos,
-    openModal,
-    setOpenModal
-    } = React.useContext(TodoContext);
+
     return (
+      
 
     <React.Fragment>
-      <Header></Header>
-       <GroupTodoList>
-            {
-            
-            groupTodos.map(groupTodo => {
-              console.log(groupTodo)
-              return (
-                
-            <GroupTodoItem
-              key={groupTodo.titulo}
-              text={groupTodo.titulo}
-              icon = {groupTodo.icon}
-             
-            />
-            
-          )
-        })
-        
-          }
-            </GroupTodoList>
-        {openModal && (
-            <Modal>
-                <GroupTodoForm></GroupTodoForm>
-              </Modal>)
-            }
-  
-                  <CreateTodoButton
-                  setOpenModal = {setOpenModal}
-                  ></CreateTodoButton>
+    
+      
+
         {/* <TodoCounter/>
         <div style={border}>
           

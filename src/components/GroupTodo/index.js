@@ -12,18 +12,23 @@ function GroupTodo(props) {
         setOpenModal
         } = React.useContext(TodoContext);
     return (
-        <React.Fragment>
-            <GroupTodoList>
+        <div>
+         <GroupTodoList>
             {
-            groupTodos.map(groupTodo => (
+            
+            groupTodos.map(groupTodo => {
+              console.log(groupTodo)
+              return (
                 
             <GroupTodoItem
               key={groupTodo.titulo}
-              titulo={groupTodo.titulo}
+              text={groupTodo.titulo}
+              icon = {groupTodo.icon}
              
             />
             
-          ))
+          )
+        })
         
           }
             </GroupTodoList>
@@ -36,7 +41,7 @@ function GroupTodo(props) {
                   <CreateTodoButton
                   setOpenModal = {setOpenModal}
                   ></CreateTodoButton>
-        </React.Fragment>
+        </div>
     );
    
 }
